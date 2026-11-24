@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Fullstack Crypto Marketplace</title>
+</head>
+
+<body>
+
+    <div class="overlay">
+        <button id="closeMenu"><i class="ri-close-circle-line"></i></button>
+
+        <div class="nav-links">
+            <a href="/index.html" class="active">Home</a>
+            <a href="/pages/charts.html">Charts</a>
+            <a href="/pages/compare.html">Compare</a>
+            <a href="/pages/about.html">About US</a>
+            <a href="/pages/contact.html">Contact US</a>
+             <a href="/pages/chatbot.html"><i class="ri-robot-line"></i></a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://Youtube.com/AsmrProg"><i class="ri-youtube-line"></i></a>
+            <a href="https://t.me/AsmrProg_Admin"><i class="ri-telegram-line"></i></a>
+            <a href="https://Github.com/AsmrProg-YT"><i class="ri-github-line"></i></a>
+            <a href="#Soon"><i class="ri-discord-line"></i></a>
+        </div>
+
+    </div>
+
+    <div class="main">
+
+        <div class="global">
+            <p>Coins: <b id="coins-count">N/A</b></p>
+            <p>Exchanges: <b id="exchanges-count">N/A</b></p>
+            <p>Market Cap: <span><b id="marketCap">N/A</b> <span id="marketCapChange">N/A <i
+                            class="ri-arrow-down-s-fill"></i></span></span></p>
+            <p>24H Vol: <b id="volume">N/A</b></p>
+            <p>Dominance: <b id="dominance">BTC N/A% - ETH N/A%</b></p>
+        </div>
+
+        <nav>
+            <div class="left-section">
+                <button id="openMenu"><i class="ri-menu-line"></i></button>
+                <a href="#" class="logo">CryptoMart</a>
+                <div class="nav-links">
+                    <a href="/index.html" class="active">Home</a>
+                    <a href="/pages/charts.html">Charts</a>
+                    <a href="/pages/compare.html">Compare</a>
+                    <a href="/pages/about.html">About US</a>
+                    <a href="/pages/contact.html">Contact US</a>
+                    <a href="/pages/chatbot.html"><i class="ri-robot-line"></i></a>
+                </div>
+            </div>
+            <div class="right-section">
+                <form class="search" id="searchForm">
+                    <i class="ri-search-line"></i>
+                    <input type="text" id="searchInput" placeholder="Search for an asset..." required
+                        autocomplete="off">
+                </form>
+                <i id="theme-toggle" class="ri-sun-line"></i>
+            </div>
+        </nav>
+<!-- LIVE UPDATE -->
+        <div class="licker-container">
+            <div class="licker" id="licker">
+                Loading crypto prices...
+            </div>
+        </div>
+
+<div class="header-body">
+<div>
+ <div>
+ <p>
+  In the decentralized world of NFTs, ownership meets creativity — turning digital art into unique assets with real-world value.
+</p>
+
+    <span class="bar"></span>
+        <h1 class="animate">NFT stat</h1>
+</div>
+<div>
+    <h1 class="animate">BItcoin Stat</h1>
+    <span class="bar"></span>
+    <p>
+        Bitcoin is more than currency — it's a movement reshaping the global financial system with trustless, peer-to-peer
+        technology.
+    </p>
+
+</div>
+<div class="btn-group">
+    <a href="#" class="btn btn-primary">Join Us</a>
+    <a href="#" class="btn btn-secondary"> learn more</a>
+</div>
+</div>
+<img src="assets/images/grid.jpg" alt="" class="grid-img"/>
+</div>
+
+
+
+        
+        <div class="trending">
+            <div class="coins-wrapper">
+                <div class="header">
+                    <h3>Trending Coins</h3>
+                </div>
+                <div class="container">
+                    <div id="coins-list"></div>
+                    <div class="spinner" id="coins-list-spinner"></div>
+                    <div class="error-message" id="coins-list-error">API limit reached. Please try again later.</div>
+                </div>
+            </div>
+
+            <div class="nfts-wrapper">
+                <div class="header">
+                    <h3>Trending NFTs</h3>
+                </div>
+                <div class="container">
+                    <div id="nfts-list"></div>
+                    <div class="spinner" id="nfts-list-spinner"></div>
+                    <div class="error-message" id="nfts-list-error">API limit reached. Please try again later.</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event, 'tab1')"><i class="ri-apps-2-line"></i>
+                    Assets</button>
+                <button class="tab-button" onclick="openTab(event, 'tab2')"><i class="ri-arrow-left-right-line"></i>
+                    Exchanges</button>
+                <button class="tab-button" onclick="openTab(event, 'tab3')"><i class="ri-exchange-2-line"></i>
+                    Categories</button>
+                <button class="tab-button" onclick="openTab(event, 'tab4')"><i class="ri-btc-line"></i> Holders</button>
+            </div>
+            <div class="tab-content" id="tab1">
+                <div id="asset-list"></div>
+                <div class="spinner" id="asset-list-spinner"></div>
+                <div class="error-message" id="asset-list-error">API limit reached. Please try again later.</div>
+            </div>
+            <div class="tab-content" id="tab2">
+                <div id="exchange-list"></div>
+                <div class="spinner" id="exchange-list-spinner"></div>
+                <div class="error-message" id="exchange-list-error">API limit reached. Please try again later.</div>
+            </div>
+            <div class="tab-content" id="tab3">
+                <div id="category-list"></div>
+                <div class="spinner" id="category-list-spinner"></div>
+                <div class="error-message" id="category-list-error">API limit reached. Please try again later.</div>
+            </div>
+            <div class="tab-content" id="tab4">
+                <div id="company-list"></div>
+                <div class="spinner" id="company-list-spinner"></div>
+                <div class="error-message" id="company-list-error">API limit reached. Please try again later.</div>
+            </div>
+        </div>
+    </div>
+
+<!-- top gainers and top losers -->
+
+<div class="topmovers-bg-image">
+  <div class="topmovers-container">
+    <h1>Top Gainers & Losers</h1>
+    <div class="topmovers-columns">
+      <div class="topmovers-column">
+        <h2>Top Gainers</h2>
+        <ul id="topmovers-gainers"></ul>
+      </div>
+      <div class="topmovers-column">
+        <h2>Top Losers</h2>
+        <ul id="topmovers-losers"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- converter -->
+
+<div class="converter">
+    <h1>Crypto Converter</h1>
+    <div class="cards">
+
+        <div class="card">
+            <div class="select">
+                <h4 id="coin-first">B</h4>
+                <div class="select1">
+                    <h6>GIVE</h6>
+                    <select value="Bitcoin" id="coin">
+                        <option value="Bitcoin">Bitcoin</option>
+                        <option value="Ethereum">Ethereum</option>
+                        <option value="Tether">Tether</option>
+                        <option value="BNB">BNB</option>
+                    </select>
+                </div>
+            </div>
+            <div class="enter-bitcoin">
+                <input type="text" value="0.1" id="cr">
+                <h6 id="btc">BTC</h6>
+            </div>
+            <p>Rate Expressed in digital currency</p>
+        </div>
+        <div class="card2"><i class="ri-arrow-left-right-line"></i></div>
+
+           <div class="card">
+            <div class="select">
+                <h4 id="gov-coins">$</h4>
+                <div class="select1">
+                    <h6>GET</h6>
+                    <select value="Dollar" id="coins">
+                        <option value="Dollar">Dollar</option>
+                        <option value="Rupee">Rupee</option>
+                        <option value="Riyal">Riyal</option>
+                        <option value="Dirham">Dirham</option>
+                    </select>
+                </div>
+            </div>
+            <div class="enter-bitcoin">
+                <input type="text" value="1,060.29" id="gv">
+                <h6 id="gov">USD</h6>
+            </div>
+            <p>Rate Expressed in goverment currency</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- crypto news -->
+<section class="review" id="crypto-news">
+  <h1 class="heading">Latest <span>Crypto News</span></h1>
+
+  <div class="swiper review-slider crypto-news-swiper">
+    <div class="swiper-wrapper" id="news-wrapper">
+      <!-- নিউজগুলো এখানে আসবে -->
+    </div>
+    
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <div class="news-refresh-container" style="text-align:center; margin-top:20px;">
+  <button id="refreshNewsBtn" class="refresh-btn">Refresh News 🔄</button>
+</div>
+
+</section>
+
+
+<footer class="footer-nft">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h2>CryptoMart</h2>
+      <p>Your trusted crypto marketplace</p>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Marketplace</a></li>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Create</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column social-column">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#" target="_blank"><i class="ri-youtube-line"></i></a>
+          <a href="#" target="_blank"><i class="ri-telegram-line"></i></a>
+          <a href="#" target="_blank"><i class="ri-github-line"></i></a>
+          <a href="#soon"><i class="ri-discord-line"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 CryptoMart — All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+
+    <button onclick="scrollToTop()" id="scrollTop"><i class="ri-arrow-up-s-line"></i></button>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/ticker.js"></script>
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
