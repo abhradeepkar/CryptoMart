@@ -6,7 +6,7 @@ const volume = document.getElementById('volume');
 const dominance = document.getElementById('dominance');
 
 // Public repo-te push korar somoy placeholder rakho; local/live test-er somoy notun key bosao
-const GEMINI_API_KEY = "YOUR_NEW_GEMINI_API_KEY";
+const GEMINI_API_KEY = "AQ.Ab8RN6Lz4yrdPZJf3r5Dw88ERC_ydZhiJthknYr88dAqJcTXUg";
 const GEMINI_MODEL = "gemini-2.5-flash";
 
 document.addEventListener("DOMContentLoaded", () => {
